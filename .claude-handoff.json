@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-03-27T21:00:00Z",
+  "repo": "ChrisGilbreath-Screenwriter",
+  "branch": "main",
+  "git_state": {
+    "uncommitted_files": ["?? Notes.md"],
+    "last_commit_hash": "90204b22b202f0b3c900c6b02693f3d352e48469",
+    "last_commit_message": "Refactor CSS into style.css, finalize layout and content"
+  },
+  "summary": {
+    "what_we_were_doing": "Building a portfolio website for Chris Gilbreath (screenwriter, author, composer) at chrisg.media — a single-page site with dark scorched-earth aesthetic, real book covers, composer credits from IMDB, and book description modals.",
+    "key_decisions": [
+      "Single HTML file + external style.css — no framework, pure HTML/CSS/JS for easy Vercel deployment",
+      "Dela Gothic One for hero display font — after cycling through Caveat (too soft), New Rocker (WoW energy), Rubik Dirt (Honey I Shrunk the Kids), Cinzel Decorative (warlock vibes)",
+      "Color palette: scorched earth — bg #0b0906, accent #b07830 (tobacco amber), steel #7a5c30. Blood red was rejected, zombie green was rejected, steel blue clashed. Tobacco amber Option B won over rust sienna Option A.",
+      "Section order: About → Books → Credits → Screenplays → Contact — user reordered several times",
+      "Screenplays section is a holding page (no real scripts listed yet) — Chris said he'll post samples when ready",
+      "Book covers use object-fit: cover with 102%/margin: -1% trick to hide white JPEG borders baked into Amazon cover images. Starr County Line uses object-position: center, others use top.",
+      "Book cards open a text-only modal (no image in modal) with full Amazon descriptions",
+      "Credits section is composer/soundtrack credits from IMDB only — no screenwriting credits listed yet",
+      "CSS was extracted from index.html into style.css in a later commit"
+    ],
+    "current_blockers": [
+      "Real screenplay titles not provided yet — Screenplays section is a placeholder",
+      "Site not yet deployed to Vercel — remote is set (git@github.com:teezlabs/chrisgilbreath-screenwriter.git) but no Vercel project connected"
+    ],
+    "next_steps": [
+      "Push to GitHub and connect to Vercel for deployment to chrisg.media",
+      "Get real screenplay titles from Chris to populate the Screenplays section",
+      "Confirm contact email info@chrisg.media is live and receiving",
+      "Add any additional books or credits as Chris provides them"
+    ],
+    "files_touched": [
+      "index.html",
+      "style.css",
+      "assets/Sixteen.jpg",
+      "assets/BadBlood.jpg",
+      "assets/StarrCountyLine.jpg"
+    ],
+    "important_context": "Client: Chris Gilbreath — screenwriter, author, composer. Based in Philadelphia, PA. Domain: chrisg.media. Email: info@chrisg.media. Books: Starr County Line (standalone border noir, 1975 TX), Bad Blood + Sixteen: Bounty Hunter (The Sixteen Series — genetic sci-fi/crime thriller). Composer credits: Manifest West (2022), Pandemic Response (2021), Mrs. Murphy's Confession (2018), Addicted to Porn: Chasing the Cardboard Butterfly (2017). Live server running on port 5500. User wants sarcastic/sassy tone in responses. Font stack: Dela Gothic One (hero), Cormorant Garamond (section titles/editorial), Bebas Neue (labels/nav), Lora (body). No framework — avoid adding one unless asked."
+  }
+}
