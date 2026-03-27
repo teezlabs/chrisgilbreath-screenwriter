@@ -23,7 +23,21 @@
       <li><a href="#scripts">Screenplays</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- ─── Mobile menu overlay (outside nav to avoid stacking context) ── -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#credits">Credits</a></li>
+      <li><a href="#scripts">Screenplays</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- ─── Hero ───────────────────────────────────────────── -->
   <section id="hero">
@@ -119,7 +133,7 @@
     <div class="credits-header">
       <div>
         <p class="label reveal">Selected Credits</p>
-        <h2 class="section-title reveal reveal-delay-1">The Work</h2>
+        <h2 class="section-title reveal reveal-delay-1">Compositions</h2>
       </div>
       <p class="label reveal reveal-delay-2" style="color: var(--ink-muted);">Composer &amp; Soundtrack</p>
     </div>
@@ -292,6 +306,26 @@
       modalClose.addEventListener('click', closeModal);
       overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
       document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+      // ── Hamburger menu ──
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      function closeNav() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      });
+      mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', closeNav);
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
     })();
   </script>
 
