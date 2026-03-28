@@ -576,8 +576,23 @@ footer {
   align-items: center;
 }
 
-footer p:last-child {
+footer p:nth-child(3) {
   text-align: right;
+}
+
+.footer-credit {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.footer-credit a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-credit a:hover {
+  text-decoration: underline;
 }
 
 footer p {
