@@ -828,6 +828,25 @@ footer p {
   padding-top: 1rem;
 }
 
+.modal-amazon {
+  align-self: flex-start;
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.45em 1.1em;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-amazon:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 .modal-close {
   align-self: flex-start;
   margin-top: auto;
