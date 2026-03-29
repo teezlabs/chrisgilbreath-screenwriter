@@ -243,13 +243,15 @@ section {
   top: 7rem;
 }
 
-.about-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 8rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--ink-faint);
-  user-select: none;
+.about-headshot {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  margin-top: 1rem;
+  filter: grayscale(100%) contrast(1.05);
 }
 
 .about-body p {
@@ -659,7 +661,7 @@ footer p {
   }
 
   .about-aside { position: static; }
-  .about-number { font-size: 5rem; }
+  .about-headshot { max-width: 180px; }
 
   .scripts-intro {
     grid-template-columns: 1fr;
