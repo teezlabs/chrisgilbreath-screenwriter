@@ -435,6 +435,17 @@ section {
 @media (max-width: 768px) { .shorts-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
 @media (max-width: 500px) { .shorts-grid { grid-template-columns: repeat(2, 1fr); } }
 
+/* ─── Watch row: trailer + shorts, uniform height ────── */
+.watch-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2rem; }
+.watch-item { display: flex; flex-direction: column; gap: 0.6rem; }
+.watch-frame { position: relative; height: 340px; width: auto; background: var(--bg-card); border: 1px solid var(--ink-faint); overflow: hidden; }
+.watch-frame::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); opacity: 0.6; z-index: 2; }
+.watch-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.watch-frame--landscape { aspect-ratio: 16 / 9; }
+.watch-frame--portrait { aspect-ratio: 9 / 16; }
+@media (max-width: 900px) { .watch-frame { height: 260px; } }
+@media (max-width: 600px) { .watch-frame { height: 220px; } }
+
 /* ─── Scripts ────────────────────────────────────────── */
 #scripts { background: var(--bg-raised); }
 
