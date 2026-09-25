@@ -416,6 +416,7 @@ section {
 /* ─── Trailers ───────────────────────────────────────── */
 .trailers-label { margin-bottom: 3rem; }
 .trailers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2.5rem; }
+.trailers-grid--single { grid-template-columns: minmax(0, 480px); }
 .trailer-item { display: flex; flex-direction: column; gap: 0.6rem; }
 .trailer-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--ink); }
 .trailer-meta { font-size: 0.8rem; font-style: italic; color: var(--ink-muted); margin-bottom: 0.5rem; }
