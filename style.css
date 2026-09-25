@@ -424,6 +424,15 @@ section {
 .trailer-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 @media (max-width: 768px) { .trailers-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 
+/* ─── Shorts ─────────────────────────────────────────── */
+.shorts-grid { display: grid; grid-template-columns: repeat(3, minmax(160px, 240px)); gap: 2rem; }
+.short-item { display: flex; flex-direction: column; gap: 0.6rem; }
+.short-frame { position: relative; width: 100%; aspect-ratio: 9 / 16; background: var(--bg-card); border: 1px solid var(--ink-faint); overflow: hidden; }
+.short-frame::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); opacity: 0.6; z-index: 2; }
+.short-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+@media (max-width: 768px) { .shorts-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+@media (max-width: 500px) { .shorts-grid { grid-template-columns: repeat(2, 1fr); } }
+
 /* ─── Scripts ────────────────────────────────────────── */
 #scripts { background: var(--bg-raised); }
 
