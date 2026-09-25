@@ -364,6 +364,7 @@ section {
 }
 
 .book-cover {
+  display: block;
   aspect-ratio: 2 / 3;
   background: var(--bg-card);
   border: 1px solid var(--ink-faint);
