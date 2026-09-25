@@ -57,10 +57,10 @@
     <a class="nav-name" href="#hero">Chris Gilbreath</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="sixteen.html" class="nav-featured">Sixteen</a></li>
       <li><a href="#books">Books</a></li>
       <li><a href="#trailers">Trailers</a></li>
       <li><a href="#credits">Credits</a></li>
-      <li><a href="#scripts">Screenplays</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -72,10 +72,10 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="sixteen.html">Sixteen</a></li>
       <li><a href="#books">Books</a></li>
       <li><a href="#trailers">Trailers</a></li>
       <li><a href="#credits">Credits</a></li>
-      <li><a href="#scripts">Screenplays</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -103,6 +103,8 @@
     </h1>
 
     <p class="hero-tagline">Border crime. Genetic fallout. The music underneath.</p>
+
+    <a class="hero-cta" href="sixteen.html">Enter the Sixteen Saga &nbsp;&rarr;</a>
 
     <div class="hero-scroll" aria-hidden="true">
       <span>Scroll</span>
@@ -140,34 +142,18 @@
 
     <div class="books-grid">
 
-      <div class="book-card reveal reveal-delay-1" data-book="sixteen">
-        <div class="book-cover">
-          <img src="assets/Sixteen.jpg" alt="Sixteen: Bounty Hunter by Chris Gilbreath" />
+      <a class="sixteen-banner reveal reveal-delay-1" href="sixteen.html">
+        <div class="sixteen-banner-cover">
+          <img src="assets/SixteenBlackWater.jpg" alt="The Sixteen Saga by Chris Gilbreath" />
         </div>
-        <p class="book-meta"><span class="book-year">The Sixteen Series</span> &mdash; Crime / Thriller</p>
-        <p class="book-blurb">When hunters are patient, survival becomes temporary.</p>
-      </div>
+        <p class="book-meta"><span class="book-year">Six Novels — Six Screenplays</span></p>
+        <p class="book-blurb">Enter the Sixteen Saga &rarr;</p>
+      </a>
 
-      <div class="book-card reveal reveal-delay-2" data-book="badblood">
-        <div class="book-cover">
-          <img src="assets/BadBlood.jpg" alt="Bad Blood by Chris Gilbreath" />
-        </div>
-        <p class="book-meta"><span class="book-year">The Sixteen Series</span> &mdash; Dark Sci-Fi / Thriller</p>
-        <p class="book-blurb">The past has teeth, and it is learning.</p>
-      </div>
-
-      <div class="book-card reveal reveal-delay-3" data-book="blackwater">
-        <div class="book-cover">
-          <img src="assets/BlackWater.jpg" alt="Sixteen: Black Water by Chris Gilbreath" />
-        </div>
-        <p class="book-meta"><span class="book-year">The Sixteen Series</span> &mdash; Survival Horror / War Fiction</p>
-        <p class="book-blurb">Something fast, brutal, and clever enough to laugh.</p>
-      </div>
-
-      <div class="book-card reveal reveal-delay-4" data-book="starr">
-        <div class="book-cover">
+      <div class="book-card reveal reveal-delay-2">
+        <a class="book-cover" href="https://www.amazon.com/Starr-County-Line-Chris-Gilbreath-ebook/dp/B008GASEG8/" target="_blank" rel="noopener">
           <img src="assets/StarrCountyLine.jpg" alt="Starr County Line by Chris Gilbreath" style="object-position: center;" />
-        </div>
+        </a>
         <p class="book-meta"><span class="book-year">Standalone</span> &mdash; Border Noir</p>
         <p class="book-blurb">When he put him in jail, he unleashed Hell in his town.</p>
       </div>
@@ -180,7 +166,11 @@
   <!-- ─── Trailers ─────────────────────────────────────────── -->
   <section id="trailers">
     <p class="label trailers-label reveal">Sizzle Reels</p>
-    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 3.5rem;">Trailers</h2>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 1.5rem;">Trailers</h2>
+    <!-- TODO: replace with Chris's YouTube channel URL once supplied -->
+    <p class="reveal reveal-delay-2" style="color: var(--ink-muted); margin-bottom: 3rem;">
+      Full trailers and shorts on <a href="#" class="contact-email" style="font-size: 1rem;">YouTube</a>. Sixteen teasers below.
+    </p>
     <div class="trailers-grid">
       <div class="trailer-item reveal reveal-delay-1">
         <p class="trailer-title">Sixteen: Black Water</p>
@@ -259,21 +249,6 @@
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- ─── Scripts ────────────────────────────────────────── -->
-  <section id="scripts">
-    <div class="scripts-intro">
-      <div>
-        <p class="label reveal">Coming Soon</p>
-        <h2 class="section-title reveal reveal-delay-1">Screenplays</h2>
-      </div>
-      <p class="reveal reveal-delay-2">
-        Sample screenplays and spec scripts will be available here. Check back soon — or reach out directly in the meantime.
-      </p>
-    </div>
-  </section>
-
   <!-- ─── Contact ────────────────────────────────────────── -->
   <section id="contact">
     <p class="label contact-label reveal">Get in Touch</p>
@@ -296,20 +271,6 @@
     <p class="footer-credit">Website by <a href="https://teezlabs.pink" target="_blank" rel="noopener noreferrer">Teezlabs</a></p>
   </footer>
 
-  <!-- ─── Book Modal ───────────────────────────────────────── -->
-  <div class="modal-overlay" id="bookModal" role="dialog" aria-modal="true">
-    <div class="modal">
-      <div class="modal-body">
-        <p class="label modal-label" id="modalGenre"></p>
-        <h3 class="modal-title" id="modalTitle"></h3>
-        <p class="modal-series" id="modalSeries"></p>
-        <p class="modal-desc" id="modalDesc"></p>
-        <a class="modal-amazon" id="modalAmazon" href="#" target="_blank" rel="noopener">Buy on Amazon</a>
-        <button class="modal-close" id="modalClose">Close</button>
-      </div>
-    </div>
-  </div>
-
   <!-- ─── Scroll Reveal JS ─────────────────────────────────── -->
   <script>
     (() => {
@@ -324,76 +285,6 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(el => observer.observe(el));
-
-      // ── Book data ──
-      const books = {
-        sixteen: {
-          title: 'Sixteen: Bounty Hunter',
-          series: 'The Sixteen Series · Book 2',
-          genre: 'Crime / Thriller',
-          cover: 'assets/Sixteen.jpg',
-          desc: `After the destruction of a bootleg cartel laboratory and the blood it left behind, Sixteen disappears.\n\nShe and Trucker flee south into the Mexican interior, hiding among villages that survive by not asking questions. They work. They keep their heads down. For a while, it's enough.\n\nThen someone makes a mistake.\n\nA single act of violence turns a forgotten village into a battlefield and sends word racing outward. Phones ring. Deals are remembered. A powerful man decides that what was lost must be reclaimed. And a professional hunter is released with orders to retrieve what the world believes it owns.\n\nThe pursuit that follows is methodical and unforgiving. Roads narrow. Distance collapses. Safe places vanish. Sixteen does not run out of fear, but out of understanding. When hunters are patient, survival becomes temporary.\n\nWith her is Trucker, massive, wounded, and loyal beyond reason. Against them are men who do not hesitate, do not miss, and do not care who gets caught in the path of the hunt.\n\nGritty, cinematic, and unsentimental — a story about ownership, inevitability, and what it costs to stay free once the world decides you belong to it.`,
-          amazon: 'https://www.amazon.com/Sixteen-Bounty-Hunter-Chris-Gilbreath-ebook/dp/B0GHHMQSTJ/'
-        },
-        badblood: {
-          title: 'Bad Blood',
-          series: 'The Sixteen Series · Book 1',
-          genre: 'Dark Sci-Fi / Thriller',
-          cover: 'assets/BadBlood.jpg',
-          desc: `Sixteen follows the widening fallout of the Novachrome Program, where its stolen remnants have crossed borders and mutated into something looser, uglier, and harder to contain. What begins as a mission to recover a vanished boy becomes a pursuit through desert and borderland, where incomplete genetic work has been weaponized by traffickers, mercenaries, and men hiding behind humanitarian fronts.\n\nHunted and hunting, Sixteen moves through hostile country with a small, fractured team bound by necessity rather than trust. The terrain is unforgiving. The enemies are patient. And somewhere ahead waits the living proof that Novachrome's damage did not end when the program burned. The past has teeth, and it is learning.\n\nA story of pursuit and collision between creation and creator, control and instinct, civilization and the violence it pretends to outlaw. Sixteen is no savior and no martyr. She survives because she was made to, and because she understands what the world refuses to admit: that some evils do not vanish when exposed, and some weapons cannot be recalled once released.`,
-          amazon: 'https://www.amazon.com/Sixteen-Bad-Blood-Chris-Gilbreath-ebook/dp/B0GC9HG7GP/'
-        },
-        starr: {
-          title: 'Starr County Line',
-          series: 'Standalone',
-          genre: 'Border Noir',
-          cover: 'assets/StarrCountyLine.jpg',
-          desc: `The year is 1975. Rural south Texas. Deputy Roe Robinson arrives at the scene of a local man's murder and apprehends a Mexican national with a gun and ten grand in his pocket. In the dead man's attic: one hundred thousand dollars' worth of Mexican contraband.\n\nWhen Sheriff JD McKinnon arrests the suspect and places him in the local jail, he unwittingly places himself between the citizens of Pinto, Texas and a bloody tidal wave of drug violence that threatens to wipe the impoverished little border town from the map.\n\nTaut and gritty, Starr County Line bares for the reader the once innocent soul of small town life and the burden of those lawmen sworn to protect it — in a time of courage-testing, heartbreaking drama along the Texas/Mexico border.`,
-          amazon: 'https://www.amazon.com/Starr-County-Line-Chris-Gilbreath-ebook/dp/B008GASEG8/'
-        },
-        blackwater: {
-          title: 'Sixteen: Black Water',
-          series: 'The Sixteen Series · Book 3',
-          genre: 'Survival Horror / War Fiction',
-          cover: 'assets/BlackWater.jpg',
-          desc: `When the Novachrome facility codenamed Black Water erupts in fire, an elite containment squad is deployed to sweep the dome and report what survived. They are convicts in borrowed uniforms; murderers, arsonists, thieves, offered redemption through obedience. Their leader is different: a soldier known only as Sixteen. Efficient. Unyielding. Property of Novachrome.\n\nThe mission collapses from the start. Their transport is torn from the sky. Survivors crawl from wreckage into a world already falling apart: corridors aflame, labs gutted, bodies broken in ways no fire could make. What was released inside the dome is not human, not anymore. Something fast, brutal, and clever enough to laugh.\n\nAt the heart of the blaze waits the truth: Black Water was never about science. It was about design. Not whether men could be improved, but whether they could be remade into weapons. Some endured. Some broke. And one of them has learned to hunt.\n\nTold in searing, stripped-down prose, Black Water is a relentless novella of survival, betrayal, and the horrors of human ambition. It fuses a bleak and brutal atmosphere with the ferocity of war fiction and the dread of survival horror; a march through fire and swamp into the jaws of something made, not born.`,
-          amazon: 'https://www.amazon.com/Sixteen-Black-Water-Chris-Gilbreath/dp/B0G3KBZ7M4/'
-        }
-      };
-
-      // ── Modal logic ──
-      const overlay = document.getElementById('bookModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalSeries = document.getElementById('modalSeries');
-      const modalGenre = document.getElementById('modalGenre');
-      const modalDesc = document.getElementById('modalDesc');
-      const modalAmazon = document.getElementById('modalAmazon');
-      const modalClose = document.getElementById('modalClose');
-
-      function openModal(key) {
-        const b = books[key];
-        if (!b) return;
-        modalTitle.textContent = b.title;
-        modalSeries.textContent = b.series;
-        modalGenre.textContent = b.genre;
-        modalDesc.innerHTML = b.desc.split('\n\n').map(p => `<p style="margin-bottom:0.9rem">${p}</p>`).join('');
-        modalAmazon.href = b.amazon;
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      document.querySelectorAll('.book-card[data-book]').forEach(card => {
-        card.addEventListener('click', () => openModal(card.dataset.book));
-      });
-
-      modalClose.addEventListener('click', closeModal);
-      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
       // ── Hamburger menu ──
       const hamburger = document.querySelector('.nav-hamburger');
