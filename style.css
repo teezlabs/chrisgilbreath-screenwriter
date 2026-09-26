@@ -265,13 +265,6 @@ section {
   font-weight: 500;
 }
 
-.about-body p:first-child {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.45;
-}
 
 /* ─── Credits ────────────────────────────────────────── */
 #credits { background: var(--bg-raised); }
