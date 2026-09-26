@@ -265,13 +265,6 @@ section {
   font-weight: 500;
 }
 
-.about-body p:first-child {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.45;
-}
 
 /* ─── Credits ────────────────────────────────────────── */
 #credits { background: var(--bg-raised); }
@@ -358,12 +351,26 @@ section {
   gap: 2.5rem 2rem;
 }
 
+/* All books laid flat in a single ordered row */
+.books-row {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.books-row .book-card {
+  flex: 1 1 0;
+  min-width: 110px;
+}
+
 .book-card {
   position: relative;
   cursor: pointer;
 }
 
 .book-cover {
+  display: block;
   aspect-ratio: 2 / 3;
   background: var(--bg-card);
   border: 1px solid var(--ink-faint);
@@ -416,6 +423,7 @@ section {
 /* ─── Trailers ───────────────────────────────────────── */
 .trailers-label { margin-bottom: 3rem; }
 .trailers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2.5rem; }
+.trailers-grid--single { grid-template-columns: minmax(0, 480px); }
 .trailer-item { display: flex; flex-direction: column; gap: 0.6rem; }
 .trailer-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--ink); }
 .trailer-meta { font-size: 0.8rem; font-style: italic; color: var(--ink-muted); margin-bottom: 0.5rem; }
@@ -423,6 +431,26 @@ section {
 .trailer-frame::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); opacity: 0.6; z-index: 2; }
 .trailer-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 @media (max-width: 768px) { .trailers-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* ─── Shorts ─────────────────────────────────────────── */
+.shorts-grid { display: grid; grid-template-columns: repeat(3, minmax(160px, 240px)); gap: 2rem; }
+.short-item { display: flex; flex-direction: column; gap: 0.6rem; }
+.short-frame { position: relative; width: 100%; aspect-ratio: 9 / 16; background: var(--bg-card); border: 1px solid var(--ink-faint); overflow: hidden; }
+.short-frame::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); opacity: 0.6; z-index: 2; }
+.short-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+@media (max-width: 768px) { .shorts-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+@media (max-width: 500px) { .shorts-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ─── Watch row: trailer + shorts, uniform height ────── */
+.watch-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2rem; }
+.watch-item { display: flex; flex-direction: column; gap: 0.6rem; }
+.watch-frame { position: relative; height: 340px; width: auto; background: var(--bg-card); border: 1px solid var(--ink-faint); overflow: hidden; }
+.watch-frame::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); opacity: 0.6; z-index: 2; }
+.watch-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.watch-frame--landscape { aspect-ratio: 16 / 9; }
+.watch-frame--portrait { aspect-ratio: 9 / 16; }
+@media (max-width: 900px) { .watch-frame { height: 260px; } }
+@media (max-width: 600px) { .watch-frame { height: 220px; } }
 
 /* ─── Scripts ────────────────────────────────────────── */
 #scripts { background: var(--bg-raised); }
@@ -687,6 +715,12 @@ footer p {
 
   .credit-type, .credit-year { grid-column: 2; }
 
+  .rep-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
   nav { padding: 1rem 1.5rem; }
 }
 
@@ -786,112 +820,130 @@ footer p {
   #contact::before { display: none; }
 }
 
-/* ─── Modal ──────────────────────────────────────────── */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(6,8,9,0.88);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.modal-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal {
-  background: var(--bg-card);
-  border: 1px solid var(--ink-faint);
-  border-left: 3px solid var(--accent);
-  max-width: 560px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  transform: translateY(20px);
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.modal-overlay.open .modal {
-  transform: none;
-}
-
-.modal-body {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.modal-label { margin-bottom: 0; }
-
-.modal-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--ink);
-}
-
-.modal-series {
-  font-family: 'Lora', serif;
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--ink-muted);
-}
-
-.modal-desc {
-  font-size: 0.95rem;
-  color: var(--ink-muted);
-  line-height: 1.75;
-  border-top: 1px solid var(--ink-faint);
-  padding-top: 1rem;
-}
-
-.modal-amazon {
-  align-self: flex-start;
+/* ─── Hero CTA ───────────────────────────────────────── */
+.hero-cta {
   display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.45em 1.1em;
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  margin-top: 2rem;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  border: 1px solid var(--accent);
+  padding: 0.7em 1.4em;
+  width: fit-content;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 1.2s;
+  transition: background 0.25s, color 0.25s;
 }
 
-.modal-amazon:hover {
+.hero-cta:hover {
   background: var(--accent);
   color: var(--bg);
 }
 
-.modal-close {
-  align-self: flex-start;
-  margin-top: auto;
-  background: none;
-  border: 1px solid var(--ink-faint);
-  color: var(--ink-muted);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  padding: 0.4em 1em;
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+/* ─── Nav: featured link ─────────────────────────────── */
+.nav-links a.nav-featured,
+.nav-links a.nav-current {
+  color: var(--accent);
 }
 
-.modal-close:hover {
+/* ─── Sixteen hub masthead ───────────────────────────── */
+#sixteen-hero {
+  padding-top: clamp(8rem, 16vh, 12rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+}
+
+.sixteen-title {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: clamp(3.2rem, 12vw, 9rem);
+  line-height: 0.95;
   color: var(--ink);
-  border-color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.sixteen-subtitle {
+  margin-top: 1.25rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.sixteen-lede {
+  margin-top: 2rem;
+  max-width: 640px;
+  font-family: 'Lora', serif;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+/* ─── Placeholder book cover (missing art) ───────────── */
+.placeholder-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  text-decoration: none;
+  background: linear-gradient(160deg, var(--bg-card), var(--bg-raised));
+}
+
+.placeholder-cover--locked {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.placeholder-index {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.placeholder-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+/* ─── Representation ──────────────────────────────────── */
+.rep-grid {
+  display: grid;
+  gap: 0;
+  max-width: 640px;
+}
+
+.rep-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.rep-row:first-child { border-top: 1px solid var(--ink-faint); }
+
+.rep-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.rep-agency {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
 }
 
 /* ─── Reduced motion ─────────────────────────────────── */
