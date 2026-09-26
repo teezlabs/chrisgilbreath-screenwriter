@@ -442,15 +442,16 @@ section {
 @media (max-width: 500px) { .shorts-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ─── Watch row: trailer + shorts, uniform height ────── */
-.watch-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2rem; }
-.watch-item { display: flex; flex-direction: column; gap: 0.6rem; }
+.watch-row { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 2rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.watch-item { display: flex; flex-direction: column; gap: 0.6rem; flex-shrink: 0; }
 .watch-frame { position: relative; height: 340px; width: auto; background: var(--bg-card); border: 1px solid var(--ink-faint); overflow: hidden; }
 .watch-frame::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); opacity: 0.6; z-index: 2; }
 .watch-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
-.watch-frame--landscape { aspect-ratio: 16 / 9; }
+.watch-frame--landscape { height: 498px; aspect-ratio: 16 / 9; }
 .watch-frame--portrait { width: 280px; height: auto; aspect-ratio: 9 / 16; }
+.watch-row > .watch-item:nth-child(2) { margin-left: 4rem; }
 @media (max-width: 900px) { .watch-frame--landscape { height: 260px; } }
-@media (max-width: 600px) { .watch-frame--landscape { height: 220px; } .watch-frame--portrait { width: 200px; } }
+@media (max-width: 600px) { .watch-frame--landscape { height: 220px; } .watch-frame--portrait { width: 200px; } .watch-row > .watch-item:nth-child(2) { margin-left: 0; } }
 
 /* ─── Scripts ────────────────────────────────────────── */
 #scripts { background: var(--bg-raised); }
