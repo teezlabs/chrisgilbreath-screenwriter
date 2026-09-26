@@ -838,6 +838,24 @@ footer p {
   transition: background 0.25s, color 0.25s;
 }
 
+.btn-outline {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 0.7em 1.4em;
+  width: fit-content;
+  transition: background 0.25s, color 0.25s;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 .hero-cta:hover {
   background: var(--accent);
   color: var(--bg);
