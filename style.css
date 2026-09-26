@@ -835,42 +835,6 @@ footer p {
   color: var(--accent);
 }
 
-/* ─── Sixteen banner card (home Books section) ───────── */
-.sixteen-banner {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.sixteen-banner-cover {
-  aspect-ratio: 2 / 3;
-  background: var(--bg-card);
-  border: 1px solid var(--accent);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 1.25rem;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-}
-
-.sixteen-banner-cover img {
-  width: 102%;
-  height: 102%;
-  margin: -1%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  filter: saturate(1.1);
-}
-
-.sixteen-banner:hover .sixteen-banner-cover {
-  transform: translateY(-6px) rotate(-0.5deg);
-  box-shadow: 12px 24px 60px rgba(0,0,0,0.7), -4px 0 0 0 var(--accent);
-}
-
-.sixteen-banner .book-blurb { color: var(--accent); }
-
 /* ─── Sixteen hub masthead ───────────────────────────── */
 #sixteen-hero {
   padding-top: clamp(8rem, 16vh, 12rem);
