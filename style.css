@@ -351,6 +351,19 @@ section {
   gap: 2.5rem 2rem;
 }
 
+/* All books laid flat in a single ordered row */
+.books-row {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.books-row .book-card {
+  flex: 1 1 0;
+  min-width: 110px;
+}
+
 .book-card {
   position: relative;
   cursor: pointer;
